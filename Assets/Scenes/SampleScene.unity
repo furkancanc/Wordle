@@ -5845,7 +5845,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a6bcfca1b9291244a4051fd961f5214, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secretWord: 
+  secretWord: Udemy
 --- !u!4 &2022596496
 Transform:
   m_ObjectHideFlags: 0
