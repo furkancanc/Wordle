@@ -30,6 +30,14 @@ public class WordContainer : MonoBehaviour
         ++currentLetterIndex;
     }
 
+    public void RemoveLetter()
+    {
+        if (currentLetterIndex <= 0) return;
+
+        --currentLetterIndex;
+        letterContainers[currentLetterIndex].Initialize();
+    }
+
     public string GetWord()
     {
         string word = "";
