@@ -10,10 +10,10 @@ public class WordContainer : MonoBehaviour
     private void Awake()
     {
         letterContainers = GetComponentsInChildren<LetterContainer>();
-        Initialize();
+        //Initialize();
     }
 
-    private void Initialize()
+    public void Initialize()
     {
         for (int i = 0; i < letterContainers.Length; ++i)
         {

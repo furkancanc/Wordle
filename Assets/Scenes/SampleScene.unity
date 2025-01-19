@@ -197,6 +197,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 19242738}
+  - component: {fileID: 19242739}
   m_Layer: 0
   m_Name: Word Container (4)
   m_TagString: Untagged
@@ -224,6 +225,18 @@ Transform:
   - {fileID: 1142787391}
   m_Father: {fileID: 295575256}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &19242739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19242737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6cf0a8851006e744b3bded5739e3279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &25083170
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,6 +246,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 25083171}
+  - component: {fileID: 25083172}
   m_Layer: 0
   m_Name: Word Container (1)
   m_TagString: Untagged
@@ -260,6 +274,18 @@ Transform:
   - {fileID: 2079637605}
   m_Father: {fileID: 295575256}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &25083172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 25083170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6cf0a8851006e744b3bded5739e3279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &34913460
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -759,6 +785,57 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 258483777291098495, guid: 319e4b557b0e47845ba1a836d10f2828, type: 3}
   m_PrefabInstance: {fileID: 179694484}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &188033569
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 188033571}
+  - component: {fileID: 188033570}
+  m_Layer: 0
+  m_Name: InputManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &188033570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188033569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9619a99f0022d1d478c32c4900a4cc65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wordContainers:
+  - {fileID: 738290156}
+  - {fileID: 25083172}
+  - {fileID: 1172367096}
+  - {fileID: 610872332}
+  - {fileID: 19242739}
+  - {fileID: 1817514483}
+--- !u!4 &188033571
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188033569}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &213882438
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1686,7 +1763,6 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
-  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1812,18 +1888,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &519420033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caec9821224c50e4182fa122baae57e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &549860363
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2004,6 +2068,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 610872331}
+  - component: {fileID: 610872332}
   m_Layer: 0
   m_Name: Word Container (3)
   m_TagString: Untagged
@@ -2031,6 +2096,18 @@ Transform:
   - {fileID: 34913461}
   m_Father: {fileID: 295575256}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &610872332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610872330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6cf0a8851006e744b3bded5739e3279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -2358,6 +2435,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 738290155}
+  - component: {fileID: 738290156}
   m_Layer: 0
   m_Name: Word Container
   m_TagString: Untagged
@@ -2385,6 +2463,18 @@ Transform:
   - {fileID: 693521618}
   m_Father: {fileID: 295575256}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &738290156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 738290154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6cf0a8851006e744b3bded5739e3279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &839049031
 GameObject:
   m_ObjectHideFlags: 0
@@ -3568,6 +3658,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1172367095}
+  - component: {fileID: 1172367096}
   m_Layer: 0
   m_Name: Word Container (2)
   m_TagString: Untagged
@@ -3595,6 +3686,18 @@ Transform:
   - {fileID: 504784379}
   m_Father: {fileID: 295575256}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1172367096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172367094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6cf0a8851006e744b3bded5739e3279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1220711164
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5008,6 +5111,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1817514482}
+  - component: {fileID: 1817514483}
   m_Layer: 0
   m_Name: Word Container (5)
   m_TagString: Untagged
@@ -5035,6 +5139,18 @@ Transform:
   - {fileID: 897856476}
   m_Father: {fileID: 295575256}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1817514483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817514481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6cf0a8851006e744b3bded5739e3279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1826719374
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6047,3 +6163,4 @@ SceneRoots:
   - {fileID: 1298312288}
   - {fileID: 78225937}
   - {fileID: 295575256}
+  - {fileID: 188033571}
