@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InputManager : MonoBehaviour
 {
     [Header(" Elements ")]
     [SerializeField] private WordContainer[] wordContainers;
+    [SerializeField] private Button tryButton;
 
     [Header(" Settings ")]
     private int currentWordContainerIndex;
@@ -40,6 +42,7 @@ public class InputManager : MonoBehaviour
         if (wordContainers[currentWordContainerIndex].IsComplete())
         {
             canAddLetter = false;
+            EnableTryButton();
         }
     }
 
@@ -55,6 +58,7 @@ public class InputManager : MonoBehaviour
         else
         {
             canAddLetter = true;
+            DisableTryButton();
             ++currentWordContainerIndex;
             Debug.Log("Wrong Word!");
         }
@@ -62,7 +66,23 @@ public class InputManager : MonoBehaviour
 
     public void BackspacePressedCallback()
     {
-        wordContainers[currentWordContainerIndex].RemoveLetter();
+        bool removedLetter = wordContainers[currentWordContainerIndex].RemoveLetter();
+
+        if (removedLetter)
+        {
+            DisableTryButton();
+        }
+
         canAddLetter = true;
+    }
+
+    private void EnableTryButton()
+    {
+        tryButton.interactable = true;
+    }
+
+    private void DisableTryButton()
+    {
+        tryButton.interactable = false;
     }
 }
