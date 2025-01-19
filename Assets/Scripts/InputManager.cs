@@ -38,11 +38,11 @@ public class InputManager : MonoBehaviour
 
         if (wordContainers[currentWordContainerIndex].IsComplete())
         {
-            CheckWord();
+            //CheckWord();
         }
     }
 
-    private void CheckWord()
+    public void CheckWord()
     {
         string wordToCheck = wordContainers[currentWordContainerIndex].GetWord();
         string secretWord = WordManager.instance.GetSecretWord();
