@@ -21,6 +21,27 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        GameManager.onGameStateChanged += GameStateChangedCallback;
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.onGameStateChanged -= GameStateChangedCallback;
+    }
+
+    private void GameStateChangedCallback(GameState gameState)
+    {
+        switch(gameState)
+        {
+            case GameState.LevelComplete:
+                ShowLevelComplete();
+                HideGame();
+                break;
+        }
+    }
+
     private void ShowGame()
     {
         ShowCG(gameCG);

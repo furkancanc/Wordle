@@ -21,6 +21,11 @@ public class InputManager : MonoBehaviour
         KeyboardKey.onKeyPressed += KeyPressedCallback;
     }
 
+    private void OnDestroy()
+    {
+        KeyboardKey.onKeyPressed -= KeyPressedCallback;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -57,7 +62,7 @@ public class InputManager : MonoBehaviour
 
         if (wordToCheck == secretWord)
         {
-            Debug.Log("Level Complete");
+            SetLevelComplete();
         }
         else
         {
@@ -66,6 +71,11 @@ public class InputManager : MonoBehaviour
             ++currentWordContainerIndex;
             Debug.Log("Wrong Word!");
         }
+    }
+
+    private void SetLevelComplete()
+    {
+        GameManager.instance.SetGameState(GameState.LevelComplete);
     }
 
     public void BackspacePressedCallback()
