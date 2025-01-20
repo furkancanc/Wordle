@@ -269,6 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5762831139a1d884c898a44bb13eed69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  renderer: {fileID: 3154478856774456354}
   letterText: {fileID: 8586108915170533061}
 --- !u!114 &8787313499935269680
 MonoBehaviour:

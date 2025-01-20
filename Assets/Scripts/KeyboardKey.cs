@@ -8,6 +8,7 @@ using System;
 public class KeyboardKey : MonoBehaviour
 {
     [Header(" Elements ")]
+    [SerializeField] private Image renderer;
     [SerializeField] private TextMeshProUGUI letterText;
 
     [Header(" Events ")]
@@ -21,5 +22,25 @@ public class KeyboardKey : MonoBehaviour
     private void SendKeyPressedEvent()
     {
         onKeyPressed?.Invoke(letterText.text[0]);
+    }
+
+    public char GetLetter()
+    {
+        return letterText.text[0];
+    }
+
+    public void SetValid()
+    {
+        renderer.color = Color.green;
+    }
+
+    public void SetPotential()
+    {
+        renderer.color = Color.yellow;
+    }
+
+    public void SetInvalid()
+    {
+        renderer.color = Color.gray;
     }
 }

@@ -822,6 +822,7 @@ MonoBehaviour:
   - {fileID: 19242739}
   - {fileID: 1817514483}
   tryButton: {fileID: 833131877}
+  keyboardColorizer: {fileID: 1316705016}
 --- !u!4 &188033571
 Transform:
   m_ObjectHideFlags: 0
@@ -4493,6 +4494,7 @@ GameObject:
   - component: {fileID: 1316705015}
   - component: {fileID: 1316705014}
   - component: {fileID: 1316705013}
+  - component: {fileID: 1316705016}
   m_Layer: 5
   m_Name: Keyboard Container
   m_TagString: Untagged
@@ -4586,6 +4588,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1316705011}
   m_CullTransparentMesh: 1
+--- !u!114 &1316705016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316705011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 055ce13775f957a42b18c1cfc9d559cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1356402498
 PrefabInstance:
   m_ObjectHideFlags: 0
