@@ -5869,6 +5869,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameCG: {fileID: 1089620566}
   levelCompleteCG: {fileID: 1811561646}
+  levelCompleteCoins: {fileID: 1504766314}
+  levelCompleteSecretWord: {fileID: 354079732}
+  levelCompleteScore: {fileID: 60497588}
+  levelCompleteBestScore: {fileID: 1271897495}
 --- !u!1001 &1133147657
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6337,7 +6341,7 @@ GameObject:
   - component: {fileID: 1271897496}
   - component: {fileID: 1271897495}
   m_Layer: 5
-  m_Name: Score Amount
+  m_Name: Best Score Amount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7273,6 +7277,50 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1637989866781911445, guid: 5970ed086b3b4314095fb9394bf37281, type: 3}
   m_PrefabInstance: {fileID: 1501735112}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1504554299
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1504554300}
+  - component: {fileID: 1504554301}
+  m_Layer: 0
+  m_Name: Data Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1504554300
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504554299}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1988922684}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1504554301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504554299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d568e8d239660254bba1c11fce040a48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1504766312
 GameObject:
   m_ObjectHideFlags: 0
@@ -9088,6 +9136,7 @@ Transform:
   - {fileID: 2022596496}
   - {fileID: 997208747}
   - {fileID: 1132630415}
+  - {fileID: 1504554300}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1998436262

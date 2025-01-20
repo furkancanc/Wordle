@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
@@ -9,6 +10,12 @@ public class UIManager : MonoBehaviour
     [Header(" Elements ")]
     [SerializeField] private CanvasGroup gameCG;
     [SerializeField] private CanvasGroup levelCompleteCG;
+
+    [Header(" Level Complete Elements ")]
+    [SerializeField] private TextMeshProUGUI levelCompleteCoins;
+    [SerializeField] private TextMeshProUGUI levelCompleteSecretWord;
+    [SerializeField] private TextMeshProUGUI levelCompleteScore;
+    [SerializeField] private TextMeshProUGUI levelCompleteBestScore;
     private void Awake()
     {
         if (instance == null)
@@ -23,6 +30,9 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
+        ShowGame();
+        HideLevelComplete();
+
         GameManager.onGameStateChanged += GameStateChangedCallback;
     }
 
@@ -54,6 +64,12 @@ public class UIManager : MonoBehaviour
 
     private void ShowLevelComplete()
     {
+        levelCompleteCoins.text = DataManager.instance.GetCoins().ToString();
+        levelCompleteSecretWord.text = WordManager.instance.GetSecretWord();
+        levelCompleteScore.text = DataManager.instance.GetScore().ToString();
+        levelCompleteBestScore.text = DataManager.instance.GetBestScore().ToString();
+
+
         ShowCG(levelCompleteCG);
     }
 
