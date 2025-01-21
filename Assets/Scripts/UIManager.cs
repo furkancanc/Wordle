@@ -10,12 +10,18 @@ public class UIManager : MonoBehaviour
     [Header(" Elements ")]
     [SerializeField] private CanvasGroup gameCG;
     [SerializeField] private CanvasGroup levelCompleteCG;
+    [SerializeField] private CanvasGroup gameOverCG;
 
     [Header(" Level Complete Elements ")]
     [SerializeField] private TextMeshProUGUI levelCompleteCoins;
     [SerializeField] private TextMeshProUGUI levelCompleteSecretWord;
     [SerializeField] private TextMeshProUGUI levelCompleteScore;
     [SerializeField] private TextMeshProUGUI levelCompleteBestScore;
+
+    [Header(" GameOver Elements ")]
+    [SerializeField] private TextMeshProUGUI gameOverCoins;
+    [SerializeField] private TextMeshProUGUI gameOverSecretWord;
+    [SerializeField] private TextMeshProUGUI gameOverBestScore;
 
     [Header(" Game Elements ")]
     [SerializeField] private TextMeshProUGUI gameScore;
@@ -53,9 +59,14 @@ public class UIManager : MonoBehaviour
             case GameState.Game:
                 ShowGame();
                 HideLevelComplete();
+                HideGameOver();
                 break;
             case GameState.LevelComplete:
                 ShowLevelComplete();
+                HideGame();
+                break;
+            case GameState.GameOver:
+                ShowGameOver();
                 HideGame();
                 break;
         }
@@ -88,6 +99,20 @@ public class UIManager : MonoBehaviour
     private void HideLevelComplete()
     {
         HideCG(levelCompleteCG);
+    }
+
+    private void ShowGameOver()
+    {
+        gameOverCoins.text = DataManager.instance.GetCoins().ToString();
+        gameOverSecretWord.text = WordManager.instance.GetSecretWord();
+        gameOverBestScore.text = DataManager.instance.GetBestScore().ToString();
+
+        ShowCG(gameOverCG);
+    }
+
+    private void HideGameOver()
+    {
+        HideCG(gameOverCG);
     }
 
     private void ShowCG(CanvasGroup cg)
