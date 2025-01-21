@@ -16,6 +16,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI levelCompleteSecretWord;
     [SerializeField] private TextMeshProUGUI levelCompleteScore;
     [SerializeField] private TextMeshProUGUI levelCompleteBestScore;
+
+    [Header(" Game Elements ")]
+    [SerializeField] private TextMeshProUGUI gameScore;
+    [SerializeField] private TextMeshProUGUI gameCoins;
+
     private void Awake()
     {
         if (instance == null)
@@ -45,6 +50,10 @@ public class UIManager : MonoBehaviour
     {
         switch(gameState)
         {
+            case GameState.Game:
+                ShowGame();
+                HideLevelComplete();
+                break;
             case GameState.LevelComplete:
                 ShowLevelComplete();
                 HideGame();
@@ -54,6 +63,9 @@ public class UIManager : MonoBehaviour
 
     private void ShowGame()
     {
+        gameCoins.text = DataManager.instance.GetCoins().ToString();
+        gameScore.text = DataManager.instance.GetScore().ToString();
+
         ShowCG(gameCG);
     }
 

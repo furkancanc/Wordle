@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,35 @@ public class KeyboardColorizer : MonoBehaviour
     private void Awake()
     {
         keys = GetComponentsInChildren<KeyboardKey>();
+
+        GameManager.onGameStateChanged += GameStateChangedCallback;
     }
+
+    private void OnDestroy()
+    {
+        GameManager.onGameStateChanged -= GameStateChangedCallback;
+    }
+
+    private void GameStateChangedCallback(GameState state)
+    {
+        switch (state)
+        {
+            case GameState.Game:
+                Initialize();
+                break;
+            case GameState.LevelComplete:
+                break;
+        }
+    }
+
+    private void Initialize()
+    {
+        for (int i = 0; i < keys.Length; ++i)
+        {
+            keys[i].Initialize();
+        }
+    }
+
     public void Colorize(string secretWord, string wordToCheck)
     {
         for (int i = 0; i < keys.Length; ++i)
