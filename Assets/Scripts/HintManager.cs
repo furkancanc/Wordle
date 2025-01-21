@@ -54,6 +54,11 @@ public class HintManager : MonoBehaviour
 
     public void LetterHint()
     {
-        Debug.Log("Letter Hint Activated");
+        WordContainer currentWordContainer = InputManager.instance.GetCurrentWordContainer();
+
+        string secretWord = WordManager.instance.GetSecretWord();
+        int randomIndex = Random.Range(0, secretWord.Length);
+
+        currentWordContainer.AddAsHint(randomIndex, secretWord[randomIndex]);
     }
 }

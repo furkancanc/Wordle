@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class InputManager : MonoBehaviour
 {
+    public static InputManager instance;
+
     [Header(" Elements ")]
     [SerializeField] private WordContainer[] wordContainers;
     [SerializeField] private Button tryButton;
@@ -13,6 +15,18 @@ public class InputManager : MonoBehaviour
     [Header(" Settings ")]
     private int currentWordContainerIndex;
     private bool canAddLetter = true;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(instance);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -135,5 +149,10 @@ public class InputManager : MonoBehaviour
     private void DisableTryButton()
     {
         tryButton.interactable = false;
+    }
+
+    public WordContainer GetCurrentWordContainer()
+    {
+        return wordContainers[currentWordContainerIndex];
     }
 }
