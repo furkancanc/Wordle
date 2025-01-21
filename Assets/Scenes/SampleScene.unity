@@ -10695,6 +10695,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   secretWord: Udemy
+  wordsText: {fileID: 4900000, guid: 0deddafe1bf336047b6a48c09e06ebe1, type: 3}
 --- !u!4 &2022596496
 Transform:
   m_ObjectHideFlags: 0
