@@ -5,12 +5,15 @@ using UnityEngine;
 
 public class WordManager : MonoBehaviour
 {
+    public static WordManager instance;
+
     [Header(" Elements ")]
     [SerializeField] private string secretWord;
     [SerializeField] private TextAsset wordsText;
     private string words;
 
-    public static WordManager instance;
+    [Header(" Settings ")]
+    private bool shouldReset;
 
     private void Awake()
     {
@@ -29,6 +32,34 @@ public class WordManager : MonoBehaviour
     private void Start()
     {
         SetNewSecretWord();
+
+        GameManager.onGameStateChanged += GameStateChangedCallback;
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.onGameStateChanged -= GameStateChangedCallback;
+    }
+
+    private void GameStateChangedCallback(GameState gameState)
+    {
+        switch (gameState)
+        {
+            case GameState.Menu:
+                break;
+            case GameState.Game:
+                if (shouldReset)
+                {
+                    SetNewSecretWord();
+                }
+                break;
+            case GameState.LevelComplete:
+                shouldReset = true;
+                break;
+            case GameState.GameOver:
+                shouldReset = true;
+                break;
+        }
     }
 
     public string GetSecretWord()
@@ -43,5 +74,7 @@ public class WordManager : MonoBehaviour
         int wordStartIndex = wordIndex * 7;
 
         secretWord = words.Substring(wordStartIndex, 5);
+
+        shouldReset = false;
     }
 }

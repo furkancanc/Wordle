@@ -9,9 +9,44 @@ public class HintManager : MonoBehaviour
     [SerializeField] private Transform keyboard;
     private KeyboardKey[] keys;
 
+    [Header(" Settings ")]
+    private bool shouldReset;
+
     private void Awake()
     {
         keys = keyboard.GetComponentsInChildren<KeyboardKey>();
+    }
+
+    private void Start()
+    {
+        GameManager.onGameStateChanged += GameStateChangedCallback;
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.onGameStateChanged -= GameStateChangedCallback;
+    }
+
+    private void GameStateChangedCallback(GameState gameState)
+    {
+        switch (gameState)
+        {
+            case GameState.Menu:
+                break;
+            case GameState.Game:
+                if (shouldReset)
+                {
+                    letterHintGivenIndices.Clear();
+                    shouldReset = false;
+                }
+                break;
+            case GameState.LevelComplete:
+                shouldReset = true;
+                break;
+            case GameState.GameOver:
+                shouldReset = true;
+                break;
+        }
     }
 
     public void KeyboardHint()
@@ -73,7 +108,7 @@ public class HintManager : MonoBehaviour
         WordContainer currentWordContainer = InputManager.instance.GetCurrentWordContainer();
 
         string secretWord = WordManager.instance.GetSecretWord();
-        int randomIndex = letterHintNotGivenIndices[Random.Range(0, letterHintGivenIndices.Count)];
+        int randomIndex = letterHintNotGivenIndices[Random.Range(0, letterHintNotGivenIndices.Count)];
         letterHintGivenIndices.Add(randomIndex);
 
         currentWordContainer.AddAsHint(randomIndex, secretWord[randomIndex]);
